@@ -18,10 +18,10 @@ data class Post(
     val reposts: Reposts,
     val views: Views,
     val postType: String,
-    val postSource : PostSource?,
-    val geo : Geo?,
+    val postSource: PostSource?,
+    val geo: Geo?,
     val signerId: Int,
-    val copyHistory : CopyHistory?,
+    val copyHistory: CopyHistory?,
     val canPin: Boolean,
     val canDelete: Boolean,
     val canEdit: Boolean,
@@ -41,19 +41,33 @@ object WallService {
     }
 
     fun update(post: Post): Boolean {
-        var isIdFound : Boolean = false
+        var isIdFound: Boolean = false
         for ((index, postCount) in posts.withIndex()) {
             if (postCount.id == post.id) {
                 val newPost = post.copy(ownerId = postCount.ownerId, date = postCount.date)
                 posts[index] = newPost
                 isIdFound = true
             }
-            else isIdFound = false
         }
-        return isIdFound
+        return if(isIdFound) return isIdFound else false
+    }
+
+    internal var comments = emptyArray<Comments>()
+
+    fun createComment(comment: Comments) {
+        var isCommentFound: Boolean = false
+        for ((index, postCount) in posts.withIndex()) {
+            if (postCount.id == comment.id) {
+                comments += comment
+                isCommentFound = true
+            }
+        }
+        if (!isCommentFound) throw PostNotFoundException("Post with id${comment.id} not found")
     }
 
 }
+
+class PostNotFoundException(message: String) : java.lang.RuntimeException(message)
 
 fun main() {
 
