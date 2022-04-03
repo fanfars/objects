@@ -5,10 +5,9 @@ private var attachments = emptyArray<Attachment>()
 
 interface Attachment {
     val type: String
-    val attachment: Any
 }
 
-class Audio(
+data class Audio(
     val id: Int = 0,
     val ownerId: Int = 0,
     val artist: String = "artist",
@@ -16,7 +15,7 @@ class Audio(
     val duration: Int = 0
 )
 
-class Video(
+data class Video(
     val id: Int = 0,
     val ownerId: Int = 0,
     val description: String = "description",
@@ -24,7 +23,7 @@ class Video(
     val duration: Int = 0
 )
 
-class Photo(
+data class Photo(
     val id: Int = 0,
     val albumId: Int = 0,
     val ownerId: Int = 0,
@@ -32,7 +31,7 @@ class Photo(
     val text: String = "text"
 )
 
-class File(
+data class File(
     val id: Int = 0,
     val ownerId: Int = 0,
     val title: String = "title",
@@ -40,30 +39,30 @@ class File(
     val ext: String = "ext"
 )
 
-class Event(
+data class Event(
     val id: Int = 0,
     val time: Int = 0,
     val memberStatus: Int = 1,
     val address: String = "address",
 )
 
-data class AudioAttachment(override val type: String = "audio", override val attachment: Audio) : Attachment {
+data class AudioAttachment(override val type: String = "audio", val audio: Audio = Audio()) : Attachment {
 
 }
 
-data class VideoAttachment(override val type: String = "video", override val attachment: Video) : Attachment {
+data class VideoAttachment(override val type: String = "video", val video: Video = Video()) : Attachment {
 
 }
 
-data class PhotoAttachment(override val type: String = "photo", override val attachment: Photo) : Attachment {
+data class PhotoAttachment(override val type: String = "photo",val photo: Photo = Photo()) : Attachment {
 
 }
 
-data class FileAttachment(override val type: String = "file", override val attachment: File) : Attachment {
+data class FileAttachment(override val type: String = "file", val file: File = File()) : Attachment {
 
 }
 
-data class EventAttachment(override val type: String = "event", override val attachment: Event) : Attachment {
+data class EventAttachment(override val type: String = "event", val event: Event = Event()) : Attachment {
 
 }
 

@@ -18,17 +18,18 @@ data class Post(
     val reposts: Reposts,
     val views: Views,
     val postType: String,
-    val postSource : PostSource?,
-    val geo : Geo?,
+    val postSource: PostSource?,
+    val geo: Geo?,
     val signerId: Int,
-    val copyHistory : CopyHistory?,
+    val copyHistory: CopyHistory?,
     val canPin: Boolean,
     val canDelete: Boolean,
     val canEdit: Boolean,
     val isPinned: Boolean,
     val markedAsAds: Boolean,
     val isFavorite: Boolean,
-    val donut: Donut
+    val donut: Donut,
+    val attachments: Array<Attachment>?
 )
 
 object WallService {
@@ -41,14 +42,13 @@ object WallService {
     }
 
     fun update(post: Post): Boolean {
-        var isIdFound : Boolean = false
+        var isIdFound: Boolean = false
         for ((index, postCount) in posts.withIndex()) {
             if (postCount.id == post.id) {
                 val newPost = post.copy(ownerId = postCount.ownerId, date = postCount.date)
                 posts[index] = newPost
                 isIdFound = true
             }
-            else isIdFound = false
         }
         return isIdFound
     }

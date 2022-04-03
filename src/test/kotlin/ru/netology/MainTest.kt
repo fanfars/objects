@@ -35,7 +35,8 @@ class MainTest {
             donut = Donut(),
             postSource = PostSource(),
             geo = Geo(),
-            copyHistory = CopyHistory()
+            copyHistory = CopyHistory(),
+            attachments = emptyArray<Attachment>()
         )
         val expectedId = 0
 
@@ -72,7 +73,8 @@ class MainTest {
             donut = Donut(),
             postSource = PostSource(),
             geo = Geo(),
-            copyHistory = CopyHistory()
+            copyHistory = CopyHistory(),
+            attachments = emptyArray<Attachment>()
         )
         val post3 = Post(
             id = 234,
@@ -100,7 +102,8 @@ class MainTest {
             donut = Donut(),
             postSource = PostSource(),
             geo = Geo(),
-            copyHistory = CopyHistory()
+            copyHistory = CopyHistory(),
+            attachments = emptyArray<Attachment>()
         )
         val post4 = Post(
             id = 2,
@@ -128,15 +131,15 @@ class MainTest {
             donut = Donut(),
             postSource = PostSource(),
             geo = Geo(),
-            copyHistory = CopyHistory()
+            copyHistory = CopyHistory(),
+            attachments = emptyArray<Attachment>()
         )
-        val expectedValue = true
 
         WallService.add(post2)
         WallService.add(post3)
         val actualValue = WallService.update(post4)
 
-        assertEquals(expectedValue, actualValue)
+        assertTrue(actualValue)
     }
 
     @Test
@@ -167,12 +170,12 @@ class MainTest {
             donut = Donut(),
             postSource = PostSource(),
             geo = Geo(),
-            copyHistory = CopyHistory()
+            copyHistory = CopyHistory(),
+            attachments = emptyArray<Attachment>()
         )
-        val expectedValue = false
 
         val actualValue = WallService.update(post5)
 
-        assertEquals(expectedValue, actualValue)
+        assertFalse(actualValue)
     }
 }
