@@ -42,10 +42,9 @@ object WallService {
                 val newPost = post.copy(ownerId = postCount.ownerId, date = postCount.date)
                 posts[index] = newPost
                 isIdFound = true
-            }
-            else isIdFound = false
+            }            
         }
-        return isIdFound
+        return if(isIdFound) return isIdFound else false
     }
 
 }
