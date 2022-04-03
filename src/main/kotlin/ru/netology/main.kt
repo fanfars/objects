@@ -48,7 +48,7 @@ object WallService {
                 val newPost = post.copy(ownerId = postCount.ownerId, date = postCount.date)
                 posts[index] = newPost
                 isIdFound = true
-            }
+            }           
         }
         return isIdFound
     }
