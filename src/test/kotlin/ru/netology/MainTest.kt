@@ -3,6 +3,7 @@ package ru.netology
 import org.junit.Test
 
 import org.junit.Assert.*
+import ru.netology.objects.*
 
 class MainTest {
 
@@ -18,11 +19,11 @@ class MainTest {
             replyOwnerId = 1,
             replyPostId = 1,
             friendsOnly = true,
-            comments = "canOpen",
-            copyright = "56894",
-            likes = "canLike",
-            reposts = "userReposted",
-            views = "count",
+            comments = Comments(),
+            copyright = Copyright(),
+            likes = Likes(),
+            reposts = Reposts(),
+            views = Views(),
             postType = "reply",
             signerId = 654698,
             canPin = true,
@@ -31,7 +32,10 @@ class MainTest {
             isPinned = true,
             markedAsAds = false,
             isFavorite = false,
-            donut = "placeholder"
+            donut = Donut(),
+            postSource = PostSource(),
+            geo = Geo(),
+            copyHistory = CopyHistory()
         )
         val expectedId = 0
 
@@ -52,11 +56,11 @@ class MainTest {
             replyOwnerId = 1,
             replyPostId = 1,
             friendsOnly = true,
-            comments = "canOpen",
-            copyright = "56894",
-            likes = "canLike",
-            reposts = "userReposted",
-            views = "count",
+            comments = Comments(),
+            copyright = Copyright(),
+            likes = Likes(),
+            reposts = Reposts(),
+            views = Views(),
             postType = "reply",
             signerId = 654698,
             canPin = true,
@@ -65,7 +69,10 @@ class MainTest {
             isPinned = true,
             markedAsAds = false,
             isFavorite = false,
-            donut = "placeholder"
+            donut = Donut(),
+            postSource = PostSource(),
+            geo = Geo(),
+            copyHistory = CopyHistory()
         )
         val post3 = Post(
             id = 234,
@@ -77,11 +84,11 @@ class MainTest {
             replyOwnerId = 1,
             replyPostId = 1,
             friendsOnly = true,
-            comments = "canOpen",
-            copyright = "56894",
-            likes = "canLike",
-            reposts = "userReposted",
-            views = "count",
+            comments = Comments(),
+            copyright = Copyright(),
+            likes = Likes(),
+            reposts = Reposts(),
+            views = Views(),
             postType = "reply",
             signerId = 654698,
             canPin = true,
@@ -90,7 +97,10 @@ class MainTest {
             isPinned = true,
             markedAsAds = false,
             isFavorite = false,
-            donut = "placeholder"
+            donut = Donut(),
+            postSource = PostSource(),
+            geo = Geo(),
+            copyHistory = CopyHistory()
         )
         val post4 = Post(
             id = 2,
@@ -102,11 +112,11 @@ class MainTest {
             replyOwnerId = 1,
             replyPostId = 1,
             friendsOnly = true,
-            comments = "canOpen",
-            copyright = "56894",
-            likes = "canLike",
-            reposts = "userReposted",
-            views = "count",
+            comments = Comments(),
+            copyright = Copyright(),
+            likes = Likes(),
+            reposts = Reposts(),
+            views = Views(),
             postType = "reply",
             signerId = 654698,
             canPin = true,
@@ -115,7 +125,10 @@ class MainTest {
             isPinned = true,
             markedAsAds = false,
             isFavorite = false,
-            donut = "placeholder"
+            donut = Donut(),
+            postSource = PostSource(),
+            geo = Geo(),
+            copyHistory = CopyHistory()
         )
         val expectedValue = true
 
@@ -138,11 +151,11 @@ class MainTest {
             replyOwnerId = 1,
             replyPostId = 1,
             friendsOnly = true,
-            comments = "canOpen",
-            copyright = "56894",
-            likes = "canLike",
-            reposts = "userReposted",
-            views = "count",
+            comments = Comments(),
+            copyright = Copyright(),
+            likes = Likes(),
+            reposts = Reposts(),
+            views = Views(),
             postType = "reply",
             signerId = 654698,
             canPin = true,
@@ -151,7 +164,10 @@ class MainTest {
             isPinned = true,
             markedAsAds = false,
             isFavorite = false,
-            donut = "placeholder"
+            donut = Donut(),
+            postSource = PostSource(),
+            geo = Geo(),
+            copyHistory = CopyHistory()
         )
         val expectedValue = false
 
